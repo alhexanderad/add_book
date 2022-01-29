@@ -14,5 +14,51 @@
 
 {% block content %}
 <h1>Hola de estamos en APP</h1>
+<div class="col-lg-8 border border-success rounded p-4 m-4 mx-auto">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Nuevo Libro</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Mostrar Libro</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Borrar Libro</button>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+
+      <form method="POST" class="col-lg-5 mx-auto border border-info rounded p-3 m-3">
+        <h3 class="alert alert-info">Nuevo Libro</h3>
+        {% csrf_token %}
+        <div class="form-group mb-3">
+          <label for="">Nombre del Libro</label>
+          <input type="text" name="name" class="form-control" id="bookName">
+        </div>
+        <div class="form-group mb-3">
+          <label for="">Precio del Libro</label>
+          <input type="number" name="prize" class="form-control" id="bookPrize">
+        </div>
+        <div class="form-group mb-3">
+          <label for="">Numero de Paginas</label>
+          <input type="number" name="pages" class="form-control" id ="bookPages">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn form-control btn-success" id="saveBook">Guardar Libro</button>
+        </div>
+      </form>
+    </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <h1 class="alert alert-success">Mostrar Libro</h1>
+    </div>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+      
+      <h1 class="alert alert-warning">Borrar Libro</h1>
+    </div>
+  </div>
+</div>
+
 {% endblock content %}
   
